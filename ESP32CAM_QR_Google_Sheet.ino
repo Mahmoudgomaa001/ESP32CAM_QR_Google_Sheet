@@ -194,7 +194,7 @@ static const char *_STREAM_CONTENT_TYPE = "multipart/x-mixed-replace;boundary=" 
 static const char *_STREAM_BOUNDARY = "\r\n--" PART_BOUNDARY "\r\n";
 static const char *_STREAM_PART = "Content-Type: image/jpeg\r\nContent-Length: %u\r\n\r\n";
 /* ======================================== */
-
+//
 /* ======================================== Empty handle to esp_http_server */
 httpd_handle_t index_httpd = NULL;
 httpd_handle_t stream_httpd = NULL;
