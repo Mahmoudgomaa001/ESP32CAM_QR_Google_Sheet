@@ -30,8 +30,8 @@
 // LiquidCrystal_I2C lcd(0x27, 16, 2);
 //---------------------------------------------------------------------------------------------------------
 // Enter Google Script Deployment ID:
-const char* GScriptId = "ENTER_Deployment ID";
-
+// const char* GScriptId = "ENTER_Deployment ID";
+const char* GScriptId = "AKfycby4_SZqMbkONwb_TF4-IlfEZFVDhBnjMvIuJiYiCSR8CiNELU5AL5aXGHupeQkCdN4";
 
 String gate_number = "Gate1";
 //---------------------------------------------------------------------------------------------------------

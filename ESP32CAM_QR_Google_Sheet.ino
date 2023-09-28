@@ -184,8 +184,8 @@ const long interval = 1000;
 /* ======================================== */
 
 /* ======================================== Replace with your network credentials */
-const char *ssid = "r4k7";
-const char *password = "printstring";
+const char *ssid = "Connect_4G_Router";
+const char *password = "RJIS2015";
 /* ======================================== */
 
 /* ======================================== */
