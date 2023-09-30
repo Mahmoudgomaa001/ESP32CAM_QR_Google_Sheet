@@ -17,63 +17,6 @@
  * https://github.com/StorageB/Google-Sheets-Logging
  * ------------------------------------------------------------------------*/
 
-#include <Arduino.h>
-// #include <ESP8266WiFi.h>
-#include <WiFi.h>
-
-// #include <SPI.h>
-// #include <MFRC522.h>
-#include <HTTPSRedirect.h>
-
-// #include <Wire.h>
-// #include <LiquidCrystal_I2C.h>
-// LiquidCrystal_I2C lcd(0x27, 16, 2);
-//---------------------------------------------------------------------------------------------------------
-// Enter Google Script Deployment ID:
-// const char* GScriptId = "ENTER_Deployment ID";
-const char* GScriptId = "AKfycby4_SZqMbkONwb_TF4-IlfEZFVDhBnjMvIuJiYiCSR8CiNELU5AL5aXGHupeQkCdN4";
-
-String gate_number = "Gate1";
-//---------------------------------------------------------------------------------------------------------
-// Enter network credentials:
-// const char* ssid = "ENTER_WIFI_SSID";
-// const char* password = "ENTER_WIFI_PASS";
-//---------------------------------------------------------------------------------------------------------
-// Enter command (insert_row or append_row) and your Google Sheets sheet name (default is Sheet1):
-String payload_base = "{\"command\": \"insert_row\", \"sheet_name\": \"Sheet1\", \"values\": ";
-String payload = "";
-//---------------------------------------------------------------------------------------------------------
-// Google Sheets setup (do not edit)
-const char* host = "script.google.com";
-const int httpsPort = 443;
-const char* fingerprint = "";
-String url = String("/macros/s/") + GScriptId + "/exec";
-HTTPSRedirect* client = nullptr;
-//------------------------------------------------------------
-// Declare variables that will be published to Google Sheets
-String student_id,first_name,last_name,phone_number,address;
-//------------------------------------------------------------
-int blocks[] = { 4, 5, 6, 8, 9 };
-#define total_blocks (sizeof(blocks) / sizeof(blocks[0]))
-//------------------------------------------------------------
-// #define RST_PIN  0  //D3
-// #define SS_PIN   2  //D4
-#define BUZZER 4  //D2
-//------------------------------------------------------------
-// MFRC522 mfrc522(SS_PIN, RST_PIN);
-// MFRC522::MIFARE_Key key;
-// MFRC522::StatusCode status;
-//------------------------------------------------------------
-/* Be aware of Sector Trailer Blocks */
-int blockNum = 2;
-/* Create another array to read data from Block */
-/* Legthn of buffer should be 2 Bytes more than the size of Block (16 Bytes) */
-byte bufferLen = 18;
-byte readBlockData[18];
-//------------------------------------------------------------
-//SplitSring
-String strs[5] ;
-
 
 /****************************************************************************************************
  * setup Function
@@ -170,7 +113,7 @@ void attensetup() {
  * loop Function
 ****************************************************************************************************/
 void attenloop() {
-  //Serial.println("[TEST] loop() starts");
+  Serial.println("[TEST] loop() starts");
   //----------------------------------------------------------------
   static bool flag = false;
   if (!flag) {
