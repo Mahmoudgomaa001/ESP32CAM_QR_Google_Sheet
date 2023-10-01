@@ -12,23 +12,24 @@
 //---------------------------------------------------------------------------------------------------------
 // Enter Google Script Deployment ID:
 // const char* GScriptId = "ENTER_Deployment ID";
+const char *GScriptId = "AKfycbz9ZvCs6kOyfmYltyovrq-XfwDrFwZJ4Q3dF4YQqCbSYn0ZksKa57najB2hS_-V_r0z";
 
 String gate_number = "Gate1";
 //---------------------------------------------------------------------------------------------------------
 /* ======================================== Replace with your network credentials */
-const char* ssid = "Connect_4G_Router";
-const char* password = "RJIS2015";
+const char *ssid = "HW-4G-MobileWiFi-7FA2_EXT";
+const char *password = "1212121212";
 //---------------------------------------------------------------------------------------------------------
 // Enter command (insert_row or append_row) and your Google Sheets sheet name (default is Sheet1):
 String payload_base = "{\"command\": \"insert_row\", \"sheet_name\": \"Sheet1\", \"values\": ";
 String payload = "";
 //---------------------------------------------------------------------------------------------------------
 // Google Sheets setup (do not edit)
-const char* host = "script.google.com";
+const char *host = "script.google.com";
 const int httpsPort = 443;
-const char* fingerprint = "";
+const char *fingerprint = "";
 String url = String("/macros/s/") + GScriptId + "/exec";
-HTTPSRedirect* client = nullptr;
+HTTPSRedirect *client = nullptr;
 //------------------------------------------------------------
 // Declare variables that will be published to Google Sheets
 String student_id, first_name, last_name, phone_number, address;
@@ -52,7 +53,7 @@ byte bufferLen = 18;
 byte readBlockData[18];
 //------------------------------------------------------------
 //SplitSring
-String strs[5] ;
+String strs[5];
 
 
 
@@ -102,99 +103,99 @@ String strs[5] ;
 
 /* ======================================== GPIO of camera models */
 #if defined(CAMERA_MODEL_WROVER_KIT)
-#define PWDN_GPIO_NUM    -1
-#define RESET_GPIO_NUM   -1
-#define XCLK_GPIO_NUM    21
-#define SIOD_GPIO_NUM    26
-#define SIOC_GPIO_NUM    27
+#define PWDN_GPIO_NUM -1
+#define RESET_GPIO_NUM -1
+#define XCLK_GPIO_NUM 21
+#define SIOD_GPIO_NUM 26
+#define SIOC_GPIO_NUM 27
 
-#define Y9_GPIO_NUM      35
-#define Y8_GPIO_NUM      34
-#define Y7_GPIO_NUM      39
-#define Y6_GPIO_NUM      36
-#define Y5_GPIO_NUM      19
-#define Y4_GPIO_NUM      18
-#define Y3_GPIO_NUM       5
-#define Y2_GPIO_NUM       4
-#define VSYNC_GPIO_NUM   25
-#define HREF_GPIO_NUM    23
-#define PCLK_GPIO_NUM    22
+#define Y9_GPIO_NUM 35
+#define Y8_GPIO_NUM 34
+#define Y7_GPIO_NUM 39
+#define Y6_GPIO_NUM 36
+#define Y5_GPIO_NUM 19
+#define Y4_GPIO_NUM 18
+#define Y3_GPIO_NUM 5
+#define Y2_GPIO_NUM 4
+#define VSYNC_GPIO_NUM 25
+#define HREF_GPIO_NUM 23
+#define PCLK_GPIO_NUM 22
 
 #elif defined(CAMERA_MODEL_ESP_EYE)
-#define PWDN_GPIO_NUM    -1
-#define RESET_GPIO_NUM   -1
-#define XCLK_GPIO_NUM    4
-#define SIOD_GPIO_NUM    18
-#define SIOC_GPIO_NUM    23
+#define PWDN_GPIO_NUM -1
+#define RESET_GPIO_NUM -1
+#define XCLK_GPIO_NUM 4
+#define SIOD_GPIO_NUM 18
+#define SIOC_GPIO_NUM 23
 
-#define Y9_GPIO_NUM      36
-#define Y8_GPIO_NUM      37
-#define Y7_GPIO_NUM      38
-#define Y6_GPIO_NUM      39
-#define Y5_GPIO_NUM      35
-#define Y4_GPIO_NUM      14
-#define Y3_GPIO_NUM      13
-#define Y2_GPIO_NUM      34
-#define VSYNC_GPIO_NUM   5
-#define HREF_GPIO_NUM    27
-#define PCLK_GPIO_NUM    25
+#define Y9_GPIO_NUM 36
+#define Y8_GPIO_NUM 37
+#define Y7_GPIO_NUM 38
+#define Y6_GPIO_NUM 39
+#define Y5_GPIO_NUM 35
+#define Y4_GPIO_NUM 14
+#define Y3_GPIO_NUM 13
+#define Y2_GPIO_NUM 34
+#define VSYNC_GPIO_NUM 5
+#define HREF_GPIO_NUM 27
+#define PCLK_GPIO_NUM 25
 
 #elif defined(CAMERA_MODEL_M5STACK_PSRAM)
-#define PWDN_GPIO_NUM     -1
-#define RESET_GPIO_NUM    15
-#define XCLK_GPIO_NUM     27
-#define SIOD_GPIO_NUM     25
-#define SIOC_GPIO_NUM     23
+#define PWDN_GPIO_NUM -1
+#define RESET_GPIO_NUM 15
+#define XCLK_GPIO_NUM 27
+#define SIOD_GPIO_NUM 25
+#define SIOC_GPIO_NUM 23
 
-#define Y9_GPIO_NUM       19
-#define Y8_GPIO_NUM       36
-#define Y7_GPIO_NUM       18
-#define Y6_GPIO_NUM       39
-#define Y5_GPIO_NUM        5
-#define Y4_GPIO_NUM       34
-#define Y3_GPIO_NUM       35
-#define Y2_GPIO_NUM       32
-#define VSYNC_GPIO_NUM    22
-#define HREF_GPIO_NUM     26
-#define PCLK_GPIO_NUM     21
+#define Y9_GPIO_NUM 19
+#define Y8_GPIO_NUM 36
+#define Y7_GPIO_NUM 18
+#define Y6_GPIO_NUM 39
+#define Y5_GPIO_NUM 5
+#define Y4_GPIO_NUM 34
+#define Y3_GPIO_NUM 35
+#define Y2_GPIO_NUM 32
+#define VSYNC_GPIO_NUM 22
+#define HREF_GPIO_NUM 26
+#define PCLK_GPIO_NUM 21
 
 #elif defined(CAMERA_MODEL_M5STACK_WITHOUT_PSRAM)
-#define PWDN_GPIO_NUM     -1
-#define RESET_GPIO_NUM    15
-#define XCLK_GPIO_NUM     27
-#define SIOD_GPIO_NUM     25
-#define SIOC_GPIO_NUM     23
+#define PWDN_GPIO_NUM -1
+#define RESET_GPIO_NUM 15
+#define XCLK_GPIO_NUM 27
+#define SIOD_GPIO_NUM 25
+#define SIOC_GPIO_NUM 23
 
-#define Y9_GPIO_NUM       19
-#define Y8_GPIO_NUM       36
-#define Y7_GPIO_NUM       18
-#define Y6_GPIO_NUM       39
-#define Y5_GPIO_NUM        5
-#define Y4_GPIO_NUM       34
-#define Y3_GPIO_NUM       35
-#define Y2_GPIO_NUM       17
-#define VSYNC_GPIO_NUM    22
-#define HREF_GPIO_NUM     26
-#define PCLK_GPIO_NUM     21
+#define Y9_GPIO_NUM 19
+#define Y8_GPIO_NUM 36
+#define Y7_GPIO_NUM 18
+#define Y6_GPIO_NUM 39
+#define Y5_GPIO_NUM 5
+#define Y4_GPIO_NUM 34
+#define Y3_GPIO_NUM 35
+#define Y2_GPIO_NUM 17
+#define VSYNC_GPIO_NUM 22
+#define HREF_GPIO_NUM 26
+#define PCLK_GPIO_NUM 21
 
 #elif defined(CAMERA_MODEL_AI_THINKER)
-#define PWDN_GPIO_NUM     32
-#define RESET_GPIO_NUM    -1
-#define XCLK_GPIO_NUM      0
-#define SIOD_GPIO_NUM     26
-#define SIOC_GPIO_NUM     27
+#define PWDN_GPIO_NUM 32
+#define RESET_GPIO_NUM -1
+#define XCLK_GPIO_NUM 0
+#define SIOD_GPIO_NUM 26
+#define SIOC_GPIO_NUM 27
 
-#define Y9_GPIO_NUM       35
-#define Y8_GPIO_NUM       34
-#define Y7_GPIO_NUM       39
-#define Y6_GPIO_NUM       36
-#define Y5_GPIO_NUM       21
-#define Y4_GPIO_NUM       19
-#define Y3_GPIO_NUM       18
-#define Y2_GPIO_NUM        5
-#define VSYNC_GPIO_NUM    25
-#define HREF_GPIO_NUM     23
-#define PCLK_GPIO_NUM     22
+#define Y9_GPIO_NUM 35
+#define Y8_GPIO_NUM 34
+#define Y7_GPIO_NUM 39
+#define Y6_GPIO_NUM 36
+#define Y5_GPIO_NUM 21
+#define Y4_GPIO_NUM 19
+#define Y3_GPIO_NUM 18
+#define Y2_GPIO_NUM 5
+#define VSYNC_GPIO_NUM 25
+#define HREF_GPIO_NUM 23
+#define PCLK_GPIO_NUM 22
 #else
 #error "Camera model not selected"
 #endif
@@ -202,15 +203,14 @@ String strs[5] ;
 
 // LEDs GPIO
 #define LED_OnBoard 4
-#define LED_Green   12
-#define LED_Blue    13
+#define LED_Green 12
+#define LED_Blue 13
 
 // creating a task handle
 TaskHandle_t QRCodeReader_Task;
 
 /* ======================================== Variables declaration */
-struct QRCodeData
-{
+struct QRCodeData {
   bool valid;
   int dataType;
   uint8_t payload[1024];
@@ -245,9 +245,9 @@ const long interval = 1000;
 
 /* ======================================== */
 #define PART_BOUNDARY "123456789000000000000987654321"
-static const char* _STREAM_CONTENT_TYPE = "multipart/x-mixed-replace;boundary=" PART_BOUNDARY;
-static const char* _STREAM_BOUNDARY = "\r\n--" PART_BOUNDARY "\r\n";
-static const char* _STREAM_PART = "Content-Type: image/jpeg\r\nContent-Length: %u\r\n\r\n";
+static const char *_STREAM_CONTENT_TYPE = "multipart/x-mixed-replace;boundary=" PART_BOUNDARY;
+static const char *_STREAM_BOUNDARY = "\r\n--" PART_BOUNDARY "\r\n";
+static const char *_STREAM_PART = "Content-Type: image/jpeg\r\nContent-Length: %u\r\n\r\n";
 /* ======================================== */
 
 /* ======================================== Empty handle to esp_http_server */
@@ -445,32 +445,32 @@ static const char PROGMEM INDEX_HTML[] = R"rawliteral(
 /* ======================================== */
 
 /* ________________________________________________________________________________ Index handler function to be called during GET or uri request */
-static esp_err_t index_handler(httpd_req_t *req){
+static esp_err_t index_handler(httpd_req_t *req) {
   httpd_resp_set_type(req, "text/html");
   return httpd_resp_send(req, (const char *)INDEX_HTML, strlen(INDEX_HTML));
 }
 /* ________________________________________________________________________________ */
 
 /* ________________________________________________________________________________ stream handler function to be called during GET or uri request. */
-static esp_err_t stream_handler(httpd_req_t *req){
+static esp_err_t stream_handler(httpd_req_t *req) {
   ws_run = true;
   vTaskDelete(QRCodeReader_Task);
   Serial.print("stream_handler running on core ");
   Serial.println(xPortGetCoreID());
 
-  camera_fb_t * fb = NULL;
+  camera_fb_t *fb = NULL;
   esp_err_t res = ESP_OK;
   size_t _jpg_buf_len = 0;
-  uint8_t * _jpg_buf = NULL;
-  char * part_buf[64];
+  uint8_t *_jpg_buf = NULL;
+  char *part_buf[64];
 
   res = httpd_resp_set_type(req, _STREAM_CONTENT_TYPE);
-  if(res != ESP_OK){
+  if (res != ESP_OK) {
     return res;
   }
 
   /* ---------------------------------------- Loop to show streaming video from ESP32 Cam camera and read QR Code. */
-  while(true){
+  while (true) {
     ws_run = true;
     fb = esp_camera_fb_get();
     if (!fb) {
@@ -478,42 +478,42 @@ static esp_err_t stream_handler(httpd_req_t *req){
       res = ESP_FAIL;
     } else {
       q = quirc_new();
-      if (q == NULL){
-        Serial.print("can't create quirc object\r\n");  
+      if (q == NULL) {
+        Serial.print("can't create quirc object\r\n");
         continue;
       }
-      
+
       quirc_resize(q, fb->width, fb->height);
       image = quirc_begin(q, NULL, NULL);
       memcpy(image, fb->buf, fb->len);
       quirc_end(q);
-      
+
       int count = quirc_count(q);
       if (count > 0) {
         quirc_extract(q, 0, &code);
         err = quirc_decode(&code, &data);
-    
-        if (err){
+
+        if (err) {
           QRCodeResult = "Decoding FAILED";
           Serial.println(QRCodeResult);
         } else {
           Serial.printf("Decoding successful:\n");
           dumpData(&data);
-          strSplit(QRCodeResult,',');      
-         attenloop();
-        } 
+          strSplit(QRCodeResult, ',');
+          attenloop();
+        }
         Serial.println();
-      } 
-      
-      image = NULL;  
+      }
+
+      image = NULL;
       quirc_destroy(q);
-      
-      if(fb->width > 200){
-        if(fb->format != PIXFORMAT_JPEG){
+
+      if (fb->width > 200) {
+        if (fb->format != PIXFORMAT_JPEG) {
           bool jpeg_converted = frame2jpg(fb, 80, &_jpg_buf, &_jpg_buf_len);
           esp_camera_fb_return(fb);
           fb = NULL;
-          if(!jpeg_converted){
+          if (!jpeg_converted) {
             Serial.println("JPEG compression failed");
             res = ESP_FAIL;
           }
@@ -523,28 +523,28 @@ static esp_err_t stream_handler(httpd_req_t *req){
         }
       }
     }
-    if(res == ESP_OK){
+    if (res == ESP_OK) {
       size_t hlen = snprintf((char *)part_buf, 64, _STREAM_PART, _jpg_buf_len);
       res = httpd_resp_send_chunk(req, (const char *)part_buf, hlen);
     }
-    if(res == ESP_OK){
+    if (res == ESP_OK) {
       res = httpd_resp_send_chunk(req, (const char *)_jpg_buf, _jpg_buf_len);
     }
-    if(res == ESP_OK){
+    if (res == ESP_OK) {
       res = httpd_resp_send_chunk(req, _STREAM_BOUNDARY, strlen(_STREAM_BOUNDARY));
     }
-    if(fb){
+    if (fb) {
       esp_camera_fb_return(fb);
       fb = NULL;
       _jpg_buf = NULL;
-    } else if(_jpg_buf){
+    } else if (_jpg_buf) {
       free(_jpg_buf);
       _jpg_buf = NULL;
     }
-    if(res != ESP_OK){
+    if (res != ESP_OK) {
       break;
     }
-    
+
     wsLive_val++;
     if (wsLive_val > 999) wsLive_val = 0;
   }
@@ -554,15 +554,17 @@ static esp_err_t stream_handler(httpd_req_t *req){
 /* ________________________________________________________________________________ */
 
 /* ________________________________________________________________________________ cmd handler function to be called during GET or uri request. */
-static esp_err_t cmd_handler(httpd_req_t *req){
-  char*  buf;
+static esp_err_t cmd_handler(httpd_req_t *req) {
+  char *buf;
   size_t buf_len;
-  char variable[32] = {0,};
-   
+  char variable[32] = {
+    0,
+  };
+
   buf_len = httpd_req_get_url_query_len(req) + 1;
   if (buf_len > 1) {
-    buf = (char*)malloc(buf_len);
-    if(!buf){
+    buf = (char *)malloc(buf_len);
+    if (!buf) {
       httpd_resp_send_500(req);
       return ESP_FAIL;
     }
@@ -603,8 +605,8 @@ static esp_err_t cmd_handler(httpd_req_t *req){
     resultData = getValue(getData, ',', 1);
     int pwm = map(resultData.toInt(), 0, 20, 0, 255);
     ledcSetup(2, 5000, 8);
-    ledcAttachPin(4, 2);  
-    ledcWrite(2,pwm);
+    ledcAttachPin(4, 2);
+    ledcWrite(2, pwm);
   }
   /* ---------------------------------------- */
 
@@ -619,8 +621,8 @@ static esp_err_t cmd_handler(httpd_req_t *req){
     }
   }
   /* ---------------------------------------- */
-  
-  if(res){
+
+  if (res) {
     return httpd_resp_send_500(req);
   }
 
@@ -630,7 +632,7 @@ static esp_err_t cmd_handler(httpd_req_t *req){
 /* ________________________________________________________________________________ */
 
 /* ________________________________________________________________________________ qrcoderslt handler function to be called during GET or uri request. */
-static esp_err_t qrcoderslt_handler(httpd_req_t *req){
+static esp_err_t qrcoderslt_handler(httpd_req_t *req) {
   if (QRCodeResult != "Decoding FAILED") QRCodeResultSend = QRCodeResult;
   httpd_resp_send(req, QRCodeResultSend.c_str(), HTTPD_RESP_USE_STRLEN);
   return ESP_OK;
@@ -638,48 +640,48 @@ static esp_err_t qrcoderslt_handler(httpd_req_t *req){
 /* ________________________________________________________________________________ */
 
 /* ________________________________________________________________________________ Subroutine for starting the web server / startCameraServer. */
-void startCameraWebServer(){
+void startCameraWebServer() {
   httpd_config_t config = HTTPD_DEFAULT_CONFIG();
   config.server_port = 80;
 
   httpd_uri_t index_uri = {
-    .uri       = "/",
-    .method    = HTTP_GET,
-    .handler   = index_handler,
-    .user_ctx  = NULL
+    .uri = "/",
+    .method = HTTP_GET,
+    .handler = index_handler,
+    .user_ctx = NULL
   };
 
   httpd_uri_t cmd_uri = {
-    .uri       = "/action",
-    .method    = HTTP_GET,
-    .handler   = cmd_handler,
-    .user_ctx  = NULL
+    .uri = "/action",
+    .method = HTTP_GET,
+    .handler = cmd_handler,
+    .user_ctx = NULL
   };
 
   httpd_uri_t qrcoderslt_uri = {
-    .uri       = "/getqrcodeval",
-    .method    = HTTP_GET,
-    .handler   = qrcoderslt_handler,
-    .user_ctx  = NULL
+    .uri = "/getqrcodeval",
+    .method = HTTP_GET,
+    .handler = qrcoderslt_handler,
+    .user_ctx = NULL
   };
 
   httpd_uri_t stream_uri = {
-    .uri       = "/stream",
-    .method    = HTTP_GET,
-    .handler   = stream_handler,
-    .user_ctx  = NULL
+    .uri = "/stream",
+    .method = HTTP_GET,
+    .handler = stream_handler,
+    .user_ctx = NULL
   };
-    
+
   if (httpd_start(&index_httpd, &config) == ESP_OK) {
-      httpd_register_uri_handler(index_httpd, &index_uri);
-      httpd_register_uri_handler(index_httpd, &cmd_uri);
-      httpd_register_uri_handler(index_httpd, &qrcoderslt_uri);
+    httpd_register_uri_handler(index_httpd, &index_uri);
+    httpd_register_uri_handler(index_httpd, &cmd_uri);
+    httpd_register_uri_handler(index_httpd, &qrcoderslt_uri);
   }
 
   config.server_port += 1;
-  config.ctrl_port += 1;  
+  config.ctrl_port += 1;
   if (httpd_start(&stream_httpd, &config) == ESP_OK) {
-      httpd_register_uri_handler(stream_httpd, &stream_uri);
+    httpd_register_uri_handler(stream_httpd, &stream_uri);
   }
 
   Serial.println();
@@ -733,21 +735,21 @@ void setup() {
   config.frame_size = FRAMESIZE_QVGA;
   config.jpeg_quality = 15;
   config.fb_count = 1;
-  
-  #if defined(CAMERA_MODEL_ESP_EYE)
-    pinMode(13, INPUT_PULLUP);
-    pinMode(14, INPUT_PULLUP);
-  #endif
+
+#if defined(CAMERA_MODEL_ESP_EYE)
+  pinMode(13, INPUT_PULLUP);
+  pinMode(14, INPUT_PULLUP);
+#endif
 
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
     Serial.printf("Camera init failed with error 0x%x", err);
     ESP.restart();
   }
-  
-  sensor_t * s = esp_camera_sensor_get();
+
+  sensor_t *s = esp_camera_sensor_get();
   s->set_framesize(s, FRAMESIZE_QVGA);
-  
+
   Serial.println("Configure and initialize the camera successfully.");
   Serial.println();
   /* ---------------------------------------- */
@@ -764,7 +766,7 @@ void setup() {
    * If within 20 seconds the ESP32 CAM has not been successfully connected to WiFi, the ESP32 CAM will restart.
    * I made this condition because on my ESP32-CAM, there are times when it seems like it can't connect to WiFi, so it needs to be restarted to be able to connect to WiFi.
    */
-  int connecting_process_timed_out = 20; //--> 20 = 20 seconds.
+  int connecting_process_timed_out = 20;  //--> 20 = 20 seconds.
   connecting_process_timed_out = connecting_process_timed_out * 2;
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
@@ -772,8 +774,8 @@ void setup() {
     delay(250);
     digitalWrite(LED_OnBoard, LOW);
     delay(250);
-    if(connecting_process_timed_out > 0) connecting_process_timed_out--;
-    if(connecting_process_timed_out == 0) {
+    if (connecting_process_timed_out > 0) connecting_process_timed_out--;
+    if (connecting_process_timed_out == 0) {
       delay(1000);
       ESP.restart();
     }
@@ -787,8 +789,8 @@ void setup() {
   /* ---------------------------------------- */
   attensetup();
   // Start camera web server
-  startCameraWebServer(); 
-  
+  startCameraWebServer();
+
   // Calls the createTaskQRCodeReader() subroutine.
   createTaskQRCodeReader();
 }
@@ -812,7 +814,7 @@ void loop() {
         last_wsLive_val = wsLive_val;
         get_wsLive_val = false;
       }
-   
+
       get_wsLive_interval++;
       if (get_wsLive_interval > 2) {
         get_wsLive_interval = 0;
@@ -832,77 +834,76 @@ void loop() {
 /* ________________________________________________________________________________ create "QRCodeReader_Task" using the xTaskCreatePinnedToCore() function */
 void createTaskQRCodeReader() {
   xTaskCreatePinnedToCore(
-             QRCodeReader,          /* Task function. */
-             "QRCodeReader_Task",   /* name of task. */
-             10000,                 /* Stack size of task */
-             NULL,                  /* parameter of the task */
-             1,                     /* priority of the task */
-             &QRCodeReader_Task,    /* Task handle to keep track of created task */
-             0);                    /* pin task to core 0 */
+    QRCodeReader,        /* Task function. */
+    "QRCodeReader_Task", /* name of task. */
+    10000,               /* Stack size of task */
+    NULL,                /* parameter of the task */
+    1,                   /* priority of the task */
+    &QRCodeReader_Task,  /* Task handle to keep track of created task */
+    0);                  /* pin task to core 0 */
 }
 /* ________________________________________________________________________________ */
 
 /* ________________________________________________________________________________ QRCodeReader() */
-void QRCodeReader( void * pvParameters ){
+void QRCodeReader(void *pvParameters) {
   Serial.print("QRCodeReader running on core ");
   Serial.println(xPortGetCoreID());
 
-  while(!ws_run){
-      camera_fb_t * fb = NULL;
-      q = quirc_new();
-      
-      if (q == NULL){
-        Serial.print("can't create quirc object\r\n");  
-        continue;
+  while (!ws_run) {
+    camera_fb_t *fb = NULL;
+    q = quirc_new();
+
+    if (q == NULL) {
+      Serial.print("can't create quirc object\r\n");
+      continue;
+    }
+
+    fb = esp_camera_fb_get();
+    if (!fb) {
+      Serial.println("Camera capture failed (QRCodeReader())");
+      continue;
+    }
+
+    quirc_resize(q, fb->width, fb->height);
+    image = quirc_begin(q, NULL, NULL);
+    memcpy(image, fb->buf, fb->len);
+    quirc_end(q);
+
+    int count = quirc_count(q);
+    if (count > 0) {
+      //Serial.println(count);
+      quirc_extract(q, 0, &code);
+      err = quirc_decode(&code, &data);
+
+      if (err) {
+        QRCodeResult = "Decoding FAILED";
+        Serial.println(QRCodeResult);
+      } else {
+        Serial.printf("Decoding successful:\n");
+        dumpData(&data);
+        Serial.printf("Sheets \n");
+        strSplit(QRCodeResult, ',');
+        attenloop();
       }
-      
-      fb = esp_camera_fb_get();
-      if (!fb)
-      {
-        Serial.println("Camera capture failed (QRCodeReader())");
-        continue;
-      }
-      
-      quirc_resize(q, fb->width, fb->height);
-      image = quirc_begin(q, NULL, NULL);
-      memcpy(image, fb->buf, fb->len);
-      quirc_end(q);
-      
-      int count = quirc_count(q);
-      if (count > 0) {
-        //Serial.println(count);
-        quirc_extract(q, 0, &code);
-        err = quirc_decode(&code, &data);
-    
-        if (err){
-          QRCodeResult = "Decoding FAILED";
-          Serial.println(QRCodeResult);
-        } else {
-          Serial.printf("Decoding successful:\n");
-          dumpData(&data);
-           Serial.printf("Sheets \n");
-         
-        } 
-        Serial.println();
-      } 
-      
-      esp_camera_fb_return(fb);
-      fb = NULL;
-      image = NULL;  
-      quirc_destroy(q);
+      Serial.println();
+    }
+
+    esp_camera_fb_return(fb);
+    fb = NULL;
+    image = NULL;
+    quirc_destroy(q);
   }
 }
 /* ________________________________________________________________________________ */
 
 /* ________________________________________________________________________________ Function to display the results of reading the QR Code on the serial monitor. */
-void dumpData(const struct quirc_data *data)
-{
+void dumpData(const struct quirc_data *data) {
   Serial.printf("-Version: %d\n", data->version);
   Serial.printf("-ECC level: %c\n", "MLHQ"[data->ecc_level]);
   Serial.printf("-Mask: %d\n", data->mask);
   Serial.printf("-Length: %d\n", data->payload_len);
   Serial.printf("-Payload: %s\n", data->payload);
-  
+
   QRCodeResult = (const char *)data->payload;
   cmd_execution();
 }
@@ -923,12 +924,12 @@ String getValue(String data, char separator, int index) {
   int found = 0;
   int strIndex[] = { 0, -1 };
   int maxIndex = data.length() - 1;
-  
+
   for (int i = 0; i <= maxIndex && found <= index; i++) {
     if (data.charAt(i) == separator || i == maxIndex) {
       found++;
       strIndex[0] = strIndex[1] + 1;
-      strIndex[1] = (i == maxIndex) ? i+1 : i;
+      strIndex[1] = (i == maxIndex) ? i + 1 : i;
     }
   }
   return found > index ? data.substring(strIndex[0], strIndex[1]) : "";
